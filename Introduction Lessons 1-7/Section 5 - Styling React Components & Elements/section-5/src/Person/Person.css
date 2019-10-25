@@ -1,0 +1,15 @@
+.Person {
+  width: 60%;
+  margin: auto;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 3px #ccc;
+  padding: 16px;
+  text-align: center;
+}
+
+/*We could use media queries like this but we are using radium for inline media queries.--In Person.js*/
+/* @media (min-width: 500px) {
+    .Person {
+      width: 450px;
+    }
+  } */
