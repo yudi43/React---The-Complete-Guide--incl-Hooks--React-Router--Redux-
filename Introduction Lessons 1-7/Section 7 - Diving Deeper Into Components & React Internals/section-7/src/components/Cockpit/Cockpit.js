@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import classes from "./Cockpit.css";
 
 const Cockpit = props => {
+  useEffect(() => {
+    console.log("[Cockpit.js] useEffect");
+    setTimeout(() => {
+      alert("Saved Data to cloud");
+    }, 1000);
+    return () => console.log("[Cockpit.js] cleanup");
+  }, []);
+  useEffect(() => {
+    console.log("[Cockpit.js] cleanup");
+    return () => {
+      console.log("[Cockpit.js] cleanup work in 2 useEffect");
+    };
+  });
   let assignedClasses = [];
   let btnClass = "";
   if (props.showPersons) {
@@ -15,7 +28,7 @@ const Cockpit = props => {
   }
   return (
     <div className={classes.Cockpit}>
-      <h1>Hi I'm React app</h1>
+      <h1>{props.title}</h1>
       <p className={assignedClasses.join(" ")}>This is really working</p>
       <button className={btnClass} onClick={props.onClick}>
         Toggle Persons

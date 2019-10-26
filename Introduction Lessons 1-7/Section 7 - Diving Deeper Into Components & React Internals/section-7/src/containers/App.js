@@ -5,6 +5,11 @@ import Persons from "../components/Persons/Persons";
 import Cockpit from "../components/Cockpit/Cockpit";
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    // console.log("[App.js] constructor");
+  }
+
   state = {
     persons: [
       { id: "hjgf", name: "Max", age: 28 },
@@ -12,8 +17,26 @@ class App extends React.Component {
       { id: "nbbvc", name: "Stephanie", age: 26 }
     ],
     otherState: "Some other state",
-    showPersons: false
+    showPersons: false,
+    showCockpit: true
   };
+
+  // static getDerivedStateFromProps(props, state) {
+  //   console.log("[App.js] getDerivedStateFromProps", props);
+
+  //   return state;
+  // }
+
+  componentDidMount() {
+    console.log("Component did mount");
+  }
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log("[App.js] shouldComponentUpdate");
+    return true;
+  }
+  componentDidUpdate() {
+    console.log("[App.js] componentDidUpdate");
+  }
 
   nameChangeHandler = (event, id) => {
     const personIndex = this.state.persons.findIndex(p => {
@@ -45,6 +68,7 @@ class App extends React.Component {
   };
 
   render() {
+    // console.log("[App.js] render");
     let persons = null;
     if (this.state.showPersons) {
       persons = (
@@ -59,11 +83,17 @@ class App extends React.Component {
     return (
       <StyleRoot>
         <div className="App">
-          <Cockpit
-            showPersons={this.state.showPersons}
-            persons={this.state.persons}
-            onClick={this.togglePersonsHandler}
-          />
+          <button onClick={() => this.setState({ showCockpit: false })}>
+            Remove Cockpit
+          </button>
+          {this.state.showCockpit ? (
+            <Cockpit
+              title={this.props.appTitle}
+              showPersons={this.state.showPersons}
+              persons={this.state.persons}
+              onClick={this.togglePersonsHandler}
+            />
+          ) : null}
           {persons}
         </div>
       </StyleRoot>
