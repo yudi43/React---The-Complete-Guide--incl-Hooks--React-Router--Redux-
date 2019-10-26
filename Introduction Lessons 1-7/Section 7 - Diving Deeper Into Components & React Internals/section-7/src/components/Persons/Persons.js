@@ -2,17 +2,26 @@ import React from "react";
 import Person from "./Person/Person";
 import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
 
-class Persons extends React.Component {
+class Persons extends React.PureComponent {
   //   static getDerivedStateFromProps(props, state) {
   //     console.log("[Persons.js] getDerivedStateFromProps");
   //     return state;
   //   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    //should return true or false
-    console.log("[persons.js] shouldComponentupdate");
-    return true;
-  }
+  //   shouldComponentUpdate(nextProps, nextState) {
+  //     //should return true or false
+  //     console.log("[persons.js] shouldComponentUpdate");
+  //     if (
+  //       nextProps.persons !== this.props.persons ||
+  //       nextProps.changed !== this.props.changed ||
+  //       nextProps.clicked !== this.props.clicked
+  //     ) {
+  //       return true;
+  //     } else {
+  //       return false;
+  //     }
+  //   }
+
   getSnapshotBeforeUpdate(prevProps, prevState) {
     console.log("[Persons.js] getSnapshotBeforeUpdate");
     return { message: "snapshot" };
