@@ -1,6 +1,7 @@
 import React from "react";
 import Person from "./Person/Person";
 import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
+// import AuthContext from "../../context/auth-context";
 
 class Persons extends React.PureComponent {
   //   static getDerivedStateFromProps(props, state) {
@@ -33,7 +34,8 @@ class Persons extends React.PureComponent {
     console.log("[Persons.js] Component will unmount,");
   }
   render() {
-    return this.props.persons.map((person, index) => {
+    console.log("[Persons.js] rendering...");
+    this.props.persons.map((person, index) => {
       console.log("[Persons.js] rendering....");
       return (
         <ErrorBoundary key={person.id}>

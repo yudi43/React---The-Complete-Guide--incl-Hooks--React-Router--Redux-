@@ -3,7 +3,7 @@ import "./App.css";
 import Radium, { StyleRoot } from "radium";
 import Persons from "../components/Persons/Persons";
 import Cockpit from "../components/Cockpit/Cockpit";
-
+import AuthContext from "../context/auth-context";
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -18,7 +18,8 @@ class App extends React.Component {
     ],
     otherState: "Some other state",
     showPersons: false,
-    showCockpit: true
+    showCockpit: true,
+    authenticated: false
   };
 
   // static getDerivedStateFromProps(props, state) {
@@ -67,6 +68,10 @@ class App extends React.Component {
     });
   };
 
+  loginHandler = () => {
+    this.setState({ authenticated: true });
+  };
+
   render() {
     // console.log("[App.js] render");
     let persons = null;
@@ -76,6 +81,7 @@ class App extends React.Component {
           persons={this.state.persons}
           clicked={this.deletePersonHandler}
           changed={this.nameChangeHandler}
+          isAuthenticated={this.state.authenticated}
         />
       );
     }
@@ -86,15 +92,22 @@ class App extends React.Component {
           <button onClick={() => this.setState({ showCockpit: false })}>
             Remove Cockpit
           </button>
-          {this.state.showCockpit ? (
-            <Cockpit
-              title={this.props.appTitle}
-              showPersons={this.state.showPersons}
-              personsLength={this.state.persons.length}
-              onClick={this.togglePersonsHandler}
-            />
-          ) : null}
-          {persons}
+          <AuthContext.Provider
+            value={{
+              authenticated: this.state.authenticated,
+              login: this.loginHandler
+            }}
+          >
+            {this.state.showCockpit ? (
+              <Cockpit
+                title={this.props.appTitle}
+                showPersons={this.state.showPersons}
+                personsLength={this.state.persons.length}
+                onClick={this.togglePersonsHandler}
+              />
+            ) : null}
+            {persons}
+          </AuthContext.Provider>
         </div>
       </StyleRoot>
     );
