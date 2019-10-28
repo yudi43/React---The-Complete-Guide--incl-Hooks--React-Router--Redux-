@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import Radium, { StyleRoot } from "radium";
+// import Radium, { StyleRoot } from "radium";
 import Persons from "../components/Persons/Persons";
 import Cockpit from "../components/Cockpit/Cockpit";
 import AuthContext from "../context/auth-context";
@@ -87,29 +87,29 @@ class App extends React.Component {
     }
 
     return (
-      <StyleRoot>
-        <div className="App">
-          <button onClick={() => this.setState({ showCockpit: false })}>
-            Remove Cockpit
-          </button>
-          <AuthContext.Provider
-            value={{
-              authenticated: this.state.authenticated,
-              login: this.loginHandler
-            }}
-          >
-            {this.state.showCockpit ? (
-              <Cockpit
-                title={this.props.appTitle}
-                showPersons={this.state.showPersons}
-                personsLength={this.state.persons.length}
-                onClick={this.togglePersonsHandler}
-              />
-            ) : null}
-            {persons}
-          </AuthContext.Provider>
-        </div>
-      </StyleRoot>
+      // <StyleRoot>
+      <div className="App">
+        <button onClick={() => this.setState({ showCockpit: false })}>
+          Remove Cockpit
+        </button>
+        <AuthContext.Provider
+          value={{
+            authenticated: this.state.authenticated,
+            login: this.loginHandler
+          }}
+        >
+          {this.state.showCockpit ? (
+            <Cockpit
+              title={this.props.appTitle}
+              showPersons={this.state.showPersons}
+              personsLength={this.state.persons.length}
+              onClick={this.togglePersonsHandler}
+            />
+          ) : null}
+          {persons}
+        </AuthContext.Provider>
+      </div>
+      // </StyleRoot>
     );
   }
 }
