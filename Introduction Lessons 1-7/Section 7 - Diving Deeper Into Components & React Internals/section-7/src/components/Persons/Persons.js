@@ -35,7 +35,7 @@ class Persons extends React.PureComponent {
   }
   render() {
     console.log("[Persons.js] rendering...");
-    this.props.persons.map((person, index) => {
+    return this.props.persons.map((person, index) => {
       console.log("[Persons.js] rendering....");
       return (
         <ErrorBoundary key={person.id}>
