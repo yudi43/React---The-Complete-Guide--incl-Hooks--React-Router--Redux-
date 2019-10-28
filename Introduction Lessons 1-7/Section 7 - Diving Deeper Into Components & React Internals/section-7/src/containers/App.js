@@ -114,4 +114,5 @@ class App extends React.Component {
   }
 }
 
-export default Radium(App);
+// export default Radium(App);
+export default App;
