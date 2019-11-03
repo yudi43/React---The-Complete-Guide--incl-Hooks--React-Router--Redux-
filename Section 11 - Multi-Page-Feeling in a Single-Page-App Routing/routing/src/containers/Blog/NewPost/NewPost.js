@@ -13,6 +13,7 @@ class NewPost extends Component {
   };
 
   componentDidMount() {
+    //for guarding, you can check here if the user is authenticated
     console.log(this.props);
   }
 
@@ -24,7 +25,9 @@ class NewPost extends Component {
     };
     axios.post("/posts", post).then(response => {
       console.log(response);
-      this.setState({ submitted: true });
+      // this.setState({ submitted: true }); or...
+      // this.props.history.push("/posts"); or...
+      this.props.history.replace("/posts");
     });
   };
 
