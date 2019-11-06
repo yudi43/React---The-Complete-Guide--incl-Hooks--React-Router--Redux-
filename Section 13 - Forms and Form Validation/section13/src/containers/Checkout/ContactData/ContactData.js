@@ -83,7 +83,7 @@ export class ContactData extends Component {
             { value: "cheapest", displayValue: "Cheapest" }
           ]
         },
-        value: "",
+        value: "fastest",
         valid: true
       }
     },
@@ -117,7 +117,9 @@ export class ContactData extends Component {
 
   checkValidity = (value, rules) => {
     let isValid = true;
-
+    if (!rules) {
+      return true;
+    }
     if (rules.required) {
       isValid = value.trim() !== "" && isValid;
     }
@@ -143,7 +145,7 @@ export class ContactData extends Component {
     updatedOrderForm[inputIdentifier] = updatedFormElement;
 
     let formIsValid = true;
-    for (let inputIdentifiers in updatedOrderForm) {
+    for (let inputIdentifier in updatedOrderForm) {
       formIsValid = updatedOrderForm[inputIdentifier].valid && formIsValid;
     }
     this.setState({ orderForm: updatedOrderForm, formIsValid: formIsValid });
