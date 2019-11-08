@@ -94,6 +94,7 @@ export class ContactData extends Component {
     event.preventDefault();
     // console.log(this.props.ingredients);
     this.setState({ loading: true });
+
     const formData = {};
     for (let formElementIdentifier in this.state.orderForm) {
       formData[formElementIdentifier] = this.state.orderForm[
