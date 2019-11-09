@@ -1,2 +1,6 @@
-export const ADD_INGREDIENT = "ADD_INGREDIENT";
-export const REMOVE_INGREDIENT = "REMOVE_INGREDIENT";
+export const INCREMENT = "INCREMENT";
+export const DECREMENT = "DECREMENT";
+export const INCREMENT_VAL = "INCREMENT_VAL";
+export const DECREMENT_VAL = "DECREMENT_VAL";
+export const STORE_RESULT = "STORE_RESULT";
+export const DELETE_RESULT = "DELETE_RESULT";
