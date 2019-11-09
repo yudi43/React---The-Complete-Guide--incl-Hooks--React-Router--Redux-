@@ -19,22 +19,30 @@ export const decrement = () => {
 
 export const increment_val = val => {
   return {
-    type: INCREMENT,
+    type: INCREMENT_VAL,
     value: val
   };
 };
 
 export const decrement_val = val => {
   return {
-    type: INCREMENT,
+    type: DECREMENT_VAL,
     value: val
   };
 };
 
-export const store_res = res => {
+export const save_res = res => {
   return {
-    type: INCREMENT,
+    type: STORE_RESULT,
     result: res
+  };
+};
+
+export const store_res = res => {
+  return dispatch => {
+    setTimeout(() => {
+      dispatch(save_res(res));
+    }, 2000);
   };
 };
 
