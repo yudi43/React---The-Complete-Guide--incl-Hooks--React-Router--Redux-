@@ -17,7 +17,7 @@ export const store_res = res => {
 
 export const delete_res = resElId => {
   return {
-    type: actionTypes.INCREMENT,
+    type: actionTypes.DELETE_RESULT,
     resultElId: resElId
   };
 };
