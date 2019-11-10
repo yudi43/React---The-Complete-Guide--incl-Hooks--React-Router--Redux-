@@ -10,7 +10,7 @@ import {
   decrement_val,
   store_res,
   delete_res
-} from "../../store/actions/actions";
+} from "../../store/actions/index";
 
 class Counter extends Component {
   render() {
