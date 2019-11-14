@@ -11,7 +11,7 @@ import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions/index";
 
-class BurgerBuilder extends React.Component {
+export class BurgerBuilder extends React.Component {
   //   constructor(props) {
   //     super(props);
   //     this.state = {};
