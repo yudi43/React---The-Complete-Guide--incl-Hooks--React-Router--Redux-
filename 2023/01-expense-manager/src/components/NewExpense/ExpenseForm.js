@@ -28,8 +28,20 @@ function ExpenseForm() {
       setEnteredAmount(value);
     }
   }
+
+  function submitHandler(event) {
+    event.preventDefault();
+    const expenseData = {
+      title: enteredTitle,
+      enteredAmount: enteredAmount,
+      date: new Date(enteredDate),
+    };
+
+    console.log("This is submitted: ", expenseData);
+  }
+
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
