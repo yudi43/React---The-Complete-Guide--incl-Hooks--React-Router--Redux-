@@ -26,8 +26,6 @@ function App() {
         yearlyContribution: yearlyContribution,
       });
     }
-
-    // do something with yearlyData ...
   };
 
   return (
