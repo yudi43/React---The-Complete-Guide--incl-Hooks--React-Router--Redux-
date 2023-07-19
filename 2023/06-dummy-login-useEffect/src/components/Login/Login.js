@@ -4,8 +4,7 @@ import Card from "../UI/Card/Card";
 import classes from "./Login.module.css";
 import Button from "../UI/Button/Button";
 
-// Reducer functions
-
+// email reducer function
 function emailReducer(state, action) {
   if (action.type === "USER_INPUT") {
     return { value: action.val, isValid: action.val.includes("@") };
@@ -16,6 +15,7 @@ function emailReducer(state, action) {
   return { value: "", isValid: false };
 }
 
+// password reducer function
 function passwordReducer(state, action) {
   if (action.type === "USER_INPUT") {
     return { value: action.val, isValid: action.val.trim().length > 6 };
