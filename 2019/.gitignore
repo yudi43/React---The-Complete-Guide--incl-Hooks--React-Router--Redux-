@@ -1,0 +1,58 @@
+# Dependency directories
+node_modules/
+dist/
+build/
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build files
+*.log
+*.zip
+*.gz
+*.tar
+*.tar.gz
+*.tgz
+*.map
+
+# Editor-specific files
+.vscode/
+.idea/
+*.sublime-*
+
+# Compiled output
+*.js
+*.jsx
+*.css
+*.min.js
+*.min.css
+
+# Dependency lock files
+yarn.lock
+package-lock.json
+
+# macOS specific files
+.DS_Store
+
+# Compiled TypeScript output
+*.tsbuildinfo
+
+# Testing artifacts
+coverage/
+
+# Cache directories
+.cache/
+dist/
+build/
+
+# Ignore all local .env files
+!.env.example
