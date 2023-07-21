@@ -6,13 +6,13 @@ export default function Cart(props) {
   const cartItems = (
     <ul className={classes["cart-items"]}>
       {[{ id: "c1", name: "sushi", price: 12.99, amount: 2 }].map((item) => {
-        <li>{item.name}</li>;
+        return <li>{item.name}</li>;
       })}
     </ul>
   );
   return (
     <Modal onClose={props.onClose}>
-      cartItems
+      {cartItems}
       <div className={classes.total}>
         <span>Total Amount</span>
         <span>23.3</span>
