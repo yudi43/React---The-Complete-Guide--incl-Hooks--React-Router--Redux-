@@ -9,6 +9,7 @@ export default function AvailableMeals(props) {
   const [httpError, setHttpError] = useState();
 
   useEffect(() => {
+    console.log("this should be deleted");
     const fetchData = async () => {
       setIsLoading(true);
       const response = await fetch(
@@ -27,6 +28,8 @@ export default function AvailableMeals(props) {
           price: responseData[key].price,
         });
       }
+
+      console.log("these are the loaded meals::: ", loadedMeals);
       setMeals(loadedMeals);
       setIsLoading(false);
     };
@@ -40,7 +43,7 @@ export default function AvailableMeals(props) {
 
     fetchData().catch((error) => {
       setIsLoading(false);
-      setHttpError(error);
+      setHttpError(error.message);
     });
   }, []);
 
