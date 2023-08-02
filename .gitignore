@@ -1,0 +1,11 @@
+.DS_Store
+
+# Ignore node_modules in all apps under 2019 and 2023 folders
+/2019/*/node_modules
+/2023/*/node_modules
+
+# Ignore npm-debug.log files globally
+npm-debug.log*
+
+# Ignore yarn.lock files globally
+yarn.lock
