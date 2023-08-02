@@ -7,7 +7,6 @@ const Counter = () => {
   const counter = useSelector((state) => state.counter);
   // const showCounter = useSelector((state) => state.showCounter);
   const dispatch = useDispatch();
-  console.log("counter:", counter);
   const incrementHandler = () => {
     dispatch(counterActions.increment());
   };
